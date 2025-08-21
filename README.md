@@ -117,3 +117,17 @@ Versões conforme `go.mod` atual:
 - github.com/spf13/cobra: v1.9.1
 - github.com/spf13/pflag: v1.0.6 (indirect)
 - github.com/inconshreveable/mousetrap: v1.1.0 (indirect)
+
+## Changelog
+
+### v0.1.0
+
+- Primeira release pública.
+- Comandos: run, ramp, curl, version, docs.
+- Runner: modos por total de requests, duração e duração+RPS.
+- Saída: text ou JSON; gravação em arquivo.
+- Ramp: resumo por fase e geral; validações de modos e flags.
+- Curl: parser básico de -X/-H/-d/-i/--head/--url com stats opcionais.
+- Help: descrições longas e exemplos em todos os comandos.
+- Completion: suportado para bash/zsh/fish/powershell.
+- Docs: geração via `stress-test docs` e `make docs`.
