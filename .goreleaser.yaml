@@ -1,0 +1,45 @@
+project_name: stress-test
+
+builds:
+  - id: stress-test
+    main: ./cmd/stress-test
+    binary: stress-test
+    goos: [linux, darwin, windows]
+    goarch: [amd64, arm64]
+    ldflags:
+      - -X github.com/JeanGrijp/stress-test/internal/version.Version={{.Version}}
+      - -X github.com/JeanGrijp/stress-test/internal/version.Commit={{.ShortCommit}}
+      - -X github.com/JeanGrijp/stress-test/internal/version.Date={{.Date}}
+
+archives:
+  - format: tar.gz
+    builds: [stress-test]
+    name_template: "{{.ProjectName}}_{{.Version}}_{{.Os}}_{{.Arch}}"
+    files:
+      - LICENSE
+      - README.md
+
+checksum:
+  name_template: "checksums.txt"
+
+dockers: []
+
+brews:
+  - name: stress-test
+    description: "CLI to run and orchestrate HTTP load/stress tests."
+    homepage: "https://github.com/JeanGrijp/stress-test"
+    repository:
+      owner: JeanGrijp
+      name: homebrew-tap
+    commit_author:
+      name: goreleaserbot
+      email: bot@goreleaser.com
+    commit_msg_template: "brew: update {{ .ProjectName }} to {{ .Tag }}"
+    install: |
+      bin.install "stress-test"
+    test: |
+      system "#{bin}/stress-test", "version"
+    skip_upload: true  # Set to false when the tap repo and token are configured
+
+changelog:
+  use: git

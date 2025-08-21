@@ -1,0 +1,27 @@
+Goal: Create a Go CLI to run load tests against a web service. The user must provide the service URL, total number of requests, and level of concurrency.
+
+The system must generate a report with specific information after the tests finish.
+
+CLI parameters:
+
+--url: URL of the target service.
+--requests: Total number of requests.
+--concurrency: Number of concurrent calls.
+
+Test execution:
+
+- Perform HTTP requests to the specified URL.
+- Distribute requests according to the configured concurrency.
+- Ensure the total number of requests is reached.
+
+Report generation:
+
+- Show a report at the end containing:
+- Total execution time
+- Total number of requests performed
+- Number of requests with HTTP status 200
+- Distribution of other HTTP status codes (e.g., 404, 500, etc.)
+
+Running the application:
+You can run this application via docker. Example:
+docker run <your docker image> --url=http://google.com --requests=1000 --concurrency=10
