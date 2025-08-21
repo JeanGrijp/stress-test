@@ -14,17 +14,17 @@ Using Go (Go 1.25+):
 go install github.com/JeanGrijp/stress-test/cmd/stress-test@latest
 ```
 
-- Para instalar uma versão específica (recomendada em CI):
+- To install a specific version (recommended for CI):
 
 ```bash
 go install github.com/JeanGrijp/stress-test/cmd/stress-test@vX.Y.Z
 ```
 
-O binário `stress-test` será instalado em `$(go env GOPATH)/bin` (adicione ao PATH).
+The `stress-test` binary will be installed into `$(go env GOPATH)/bin` (ensure it is on your PATH).
 
-### Shell completion (opcional)
+### Shell completion (optional)
 
-- zsh (persistente):
+- zsh (persistent):
 
 ```bash
 mkdir -p ~/.zsh/completions
@@ -32,19 +32,19 @@ stress-test completion zsh > ~/.zsh/completions/_stress-test
 echo 'autoload -U compinit; compinit; fpath+=~/.zsh/completions' >> ~/.zshrc
 ```
 
-- bash (persistente):
+- bash (persistent):
 
 ```bash
 echo 'source <(stress-test completion bash)' >> ~/.bashrc
 ```
 
-- fish (persistente):
+- fish (persistent):
 
 ```bash
 stress-test completion fish > ~/.config/fish/completions/stress-test.fish
 ```
 
-- PowerShell (sessão atual):
+- PowerShell (current session):
 
 ```powershell
 stress-test completion powershell | Out-String | Invoke-Expression
@@ -59,7 +59,7 @@ make build
 
 ## Usage
 
-Comandos principais:
+Main commands:
 
 ```bash
 stress-test --help
@@ -109,9 +109,9 @@ go install github.com/JeanGrijp/stress-test/cmd/stress-test@vX.Y.Z
 
 Homebrew (optional): the `.goreleaser.yaml` has a tap config. To enable, set `skip_upload: false` and configure a tap repo and token.
 
-## Dependencies (libs e versões)
+## Dependencies (libs and versions)
 
-Versões conforme `go.mod` atual:
+Versions according to the current `go.mod`:
 
 - Go: 1.25
 - github.com/spf13/cobra: v1.9.1
@@ -122,12 +122,12 @@ Versões conforme `go.mod` atual:
 
 ### v0.1.0
 
-- Primeira release pública.
-- Comandos: run, ramp, curl, version, docs.
-- Runner: modos por total de requests, duração e duração+RPS.
-- Saída: text ou JSON; gravação em arquivo.
-- Ramp: resumo por fase e geral; validações de modos e flags.
-- Curl: parser básico de -X/-H/-d/-i/--head/--url com stats opcionais.
-- Help: descrições longas e exemplos em todos os comandos.
-- Completion: suportado para bash/zsh/fish/powershell.
-- Docs: geração via `stress-test docs` e `make docs`.
+- First public release.
+- Commands: run, ramp, curl, version, docs.
+- Runner: modes by total requests, by duration, and duration+RPS.
+- Output: text or JSON; optional write to file.
+- Ramp: per-phase and overall summaries; mode/flag validations.
+- Curl: basic parser for -X/-H/-d/-i/--head/--url with optional stats.
+- Help: long descriptions and examples for all commands.
+- Completion: bash/zsh/fish/powershell supported.
+- Docs: generation via `stress-test docs` and `make docs`.
